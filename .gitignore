@@ -18,7 +18,8 @@ ipch
 *.opensdf
 *.idb
 *.vcxproj
-*.sln
+#*.sln # We want to include .sln files to the repository so people can
+# open the project for work easier
 
 # OSX/Linux build products
 *.mak
