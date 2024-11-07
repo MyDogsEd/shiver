@@ -1,0 +1,14 @@
+"UI.ButtonClick"
+{
+    "channel"   "CHAN_STATIC"
+    "volume"    "0.0"
+    "soundlevel" "SNDLVL_NONE"
+    "wave"      ""
+}
+"UI.ButtonOver"
+{
+    "channel"   "CHAN_STATIC"
+    "volume"    "0.0"
+    "soundlevel" "SNDLVL_NONE"
+    "wave"      ""
+}
