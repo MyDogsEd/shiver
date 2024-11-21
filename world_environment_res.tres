@@ -1,0 +1,12 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://ss2ogofy2bsk"]
+
+[ext_resource type="Sky" uid="uid://cgky37us5goim" path="res://world_sky.tres" id="1_t1i42"]
+
+[resource]
+background_mode = 2
+background_color = Color(0, 0, 0.537255, 1)
+sky = ExtResource("1_t1i42")
+fog_mode = 1
+fog_density = 1.0
+volumetric_fog_detail_spread = 1.10957
+volumetric_fog_sky_affect = 0.621

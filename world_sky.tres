@@ -1,0 +1,8 @@
+[gd_resource type="Sky" load_steps=2 format=3 uid="uid://cgky37us5goim"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yvont"]
+sky_top_color = Color(0.14438, 0.442785, 0.808247, 1)
+sun_curve = 0.0891924
+
+[resource]
+sky_material = SubResource("ProceduralSkyMaterial_yvont")
