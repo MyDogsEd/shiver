@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://3gb1gi3a6vm8"]
+[gd_scene load_steps=9 format=3 uid="uid://3gb1gi3a6vm8"]
 
 [ext_resource type="Environment" uid="uid://ss2ogofy2bsk" path="res://world_environment_res.tres" id="1_37suf"]
 [ext_resource type="Texture2D" uid="uid://db3u1cayjl8l2" path="res://assets/textures/dev_textures/dark/texture_01.png" id="2_t8vcn"]
 [ext_resource type="Texture2D" uid="uid://r1fiuk60ofvc" path="res://assets/textures/dev_textures/light/texture_02.png" id="3_c7w7c"]
 [ext_resource type="Texture2D" uid="uid://c24hambcapext" path="res://assets/textures/dev_textures/orange/texture_02.png" id="4_5bpwq"]
+[ext_resource type="PackedScene" uid="uid://yl6r2hwieqr6" path="res://scenes/entities/player.tscn" id="5_phf43"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glt0w"]
 render_priority = 1
@@ -30,6 +31,7 @@ environment = ExtResource("1_37suf")
 [node name="Geometry" type="Node" parent="."]
 
 [node name="Level" type="CSGCombiner3D" parent="Geometry"]
+use_collision = true
 
 [node name="LevelBase" type="CSGBox3D" parent="Geometry/Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
@@ -47,3 +49,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 operation = 2
 size = Vector3(5, 2, 5)
 material = SubResource("StandardMaterial3D_7ah6o")
+
+[node name="Player" parent="." instance=ExtResource("5_phf43")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17316, 2.96594, -0.954334)
