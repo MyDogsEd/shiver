@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://yl6r2hwieqr6"]
 
 [ext_resource type="Script" path="res://scenes/entities/player.gd" id="1_qjafd"]
-[ext_resource type="PackedScene" uid="uid://tb5kiajpj6w4" path="res://assets/models/glock.glb" id="2_tycrn"]
+[ext_resource type="PackedScene" uid="uid://bibdq0bi0v7f7" path="res://scenes/weapons/glock.tscn" id="2_5kg54"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hb0n4"]
 
@@ -20,5 +20,5 @@ mesh = SubResource("CapsuleMesh_aefnq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.568292, 0)
 current = true
 
-[node name="glock" parent="Camera3D" instance=ExtResource("2_tycrn")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.208539, -0.239623, -0.371167)
+[node name="Glock" parent="Camera3D" instance=ExtResource("2_5kg54")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.206386, -0.223823, -0.354405)

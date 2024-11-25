@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://bibdq0bi0v7f7"]
+
+[ext_resource type="Script" path="res://scenes/weapons/glock.gd" id="1_2q4b5"]
+[ext_resource type="PackedScene" uid="uid://tb5kiajpj6w4" path="res://assets/models/glock.glb" id="1_fq81m"]
+[ext_resource type="AudioStream" uid="uid://dq07e87rhsg6d" path="res://assets/sounds/9_mm_gunshot-mike-koenig-123.mp3" id="3_u5wmn"]
+[ext_resource type="Script" path="res://scenes/weapons/casing_spawner.gd" id="4_47wpo"]
+[ext_resource type="PackedScene" uid="uid://crwx54nnlioib" path="res://scenes/objects/object_bullet_casing.tscn" id="5_4l5b3"]
+
+[sub_resource type="Animation" id="Animation_g456p"]
+resource_name = "fire"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("glock:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.698132, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GunshotSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CasingSpawner")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_casing"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_00cbn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("glock:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GunshotSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yxfpt"]
+_data = {
+"RESET": SubResource("Animation_00cbn"),
+"fire": SubResource("Animation_g456p")
+}
+
+[node name="Glock" type="Node3D"]
+script = ExtResource("1_2q4b5")
+
+[node name="glock" parent="." instance=ExtResource("1_fq81m")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yxfpt")
+}
+
+[node name="GunshotSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0558943, 0.0859309)
+stream = ExtResource("3_u5wmn")
+
+[node name="CasingSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00595513, 0.0525329, -0.0209943)
+script = ExtResource("4_47wpo")
+bullet_casing = ExtResource("5_4l5b3")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
