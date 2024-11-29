@@ -1,8 +1,10 @@
-[gd_resource type="Sky" load_steps=2 format=3 uid="uid://cgky37us5goim"]
+[gd_resource type="Sky" load_steps=3 format=3 uid="uid://cgky37us5goim"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yvont"]
-sky_top_color = Color(0.14438, 0.442785, 0.808247, 1)
-sun_curve = 0.0891924
+[ext_resource type="Shader" path="res://scenes/levels/world.gdshader" id="1_qcg5a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_av27e"]
+render_priority = 0
+shader = ExtResource("1_qcg5a")
 
 [resource]
-sky_material = SubResource("ProceduralSkyMaterial_yvont")
+sky_material = SubResource("ShaderMaterial_av27e")
